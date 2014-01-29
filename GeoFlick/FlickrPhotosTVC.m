@@ -20,7 +20,7 @@
     _photos = photos;
     [self.tableView reloadData];
 }
-/*
+
 #pragma mark - UITableViewDataSource
 
 // the methods in this protocol are what provides the View its data
@@ -49,10 +49,21 @@
     // get the photo out of our Model
     NSDictionary *photo = self.photos[indexPath.row];
     
+    NSString *photoTitle = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+    NSString *photoDescription = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    
     // update UILabels in the UITableViewCell
     // valueForKeyPath: supports "dot notation" to look inside dictionaries at other dictionaries
-    cell.textLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
-    cell.detailTextLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    if (photoTitle && photoTitle.length > 0) {
+        cell.textLabel.text         = photoTitle;
+        cell.detailTextLabel.text   = photoDescription;
+    } else if (photoDescription && photoDescription.length > 0) {
+        cell.textLabel.text         = photoDescription;
+        cell.detailTextLabel.text   = @"";
+    } else {
+        cell.textLabel.text         = @"Unknown";
+        cell.detailTextLabel.text   = @"";
+    }
     
     return cell;
 }
@@ -113,6 +124,6 @@
             }
         }
     }
-}*/
+}
 
 @end
