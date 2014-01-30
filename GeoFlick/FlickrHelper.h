@@ -15,5 +15,7 @@
 + (NSString *) countryNameForPlace:(NSDictionary *)place;
 + (NSString *) nameForPlace:(NSDictionary *)place;
 + (NSString *) detailsForPlace:(NSDictionary *)place;
++ (NSArray *) allRecentPhotos;
++ (void) addPhotoToRecents:(NSDictionary *)photo;
 
 @end

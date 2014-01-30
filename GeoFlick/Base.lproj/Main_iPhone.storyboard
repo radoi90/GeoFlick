@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tjK-IS-FF8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tjK-IS-FF8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -179,11 +179,11 @@
             </objects>
             <point key="canvasLocation" x="-841" y="353"/>
         </scene>
-        <!--Navigation Controller - Top places-->
+        <!--Navigation Controller-->
         <scene sceneID="Jfo-gi-rc6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kd3-iv-fVv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top places" id="RVj-CR-GqL"/>
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="RVj-CR-GqL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3v2-bg-2Nf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -198,11 +198,11 @@
             </objects>
             <point key="canvasLocation" x="-375" y="-39"/>
         </scene>
-        <!--Navigation Controller - Recents-->
+        <!--Navigation Controller-->
         <scene sceneID="nEa-Bt-1HW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kjz-y6-VAT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recents" id="6MB-yB-MrT"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="6MB-yB-MrT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mrf-O0-qbh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -266,6 +266,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dl4-qg-jJa"/>
+        <segue reference="x15-ei-HaO"/>
     </inferredMetricsTieBreakers>
 </document>

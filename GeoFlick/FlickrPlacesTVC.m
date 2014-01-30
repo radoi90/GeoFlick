@@ -73,33 +73,10 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-
-// when a row is selected and we are in a UISplitViewController,
-//   this updates the Detail ImageViewController (instead of segueing to it)
-// knows how to find an ImageViewController inside a UINavigationController in the Detail too
-// otherwise, this does nothing (because detail will be nil and not "isKindOfClass:" anything)
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // get the Detail view controller in our UISplitViewController (nil if not in one)
-    id detail = self.splitViewController.viewControllers[1];
-    // if Detail is a UINavigationController, look at its root view controller to find it
-    if ([detail isKindOfClass:[UINavigationController class]]) {
-        detail = [((UINavigationController *)detail).viewControllers firstObject];
-    }
-    // is the Detail is an ImageViewController?
-    if ([detail isKindOfClass:[FlickrPhotosTVC class]]) {
-        // yes ... we know how to update that!
-        [self prepareImageViewController:detail toDisplayPhoto:self.photos[indexPath.row]];
-    }
-} */
-
 #pragma mark - Navigation
 
-// prepares the given ImageViewController to show the given photo
-// used either when segueing to an ImageViewController
-//   or when our UISplitViewController's Detail view controller is an ImageViewController
+// prepares the given LocationFlickrPhotosTVC to show photos at the given place
+// used either when segueing to an LocationFlickrPhotosTVC
 
 - (void)prepareLocationFlickrPhotosTVC:(LocationFlickrPhotosTVC *)lfptvc
                         toDisplayPlace:(NSDictionary *)place

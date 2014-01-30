@@ -57,6 +57,14 @@
     // self.scrollView could be nil on the next line if outlet-setting has not happened yet
     self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
     
+    double widthFactor = self.scrollView.bounds.size.width / image.size.width;
+    double heightFactor = (self.scrollView.bounds.size.height
+                           - self.navigationController.navigationBar.frame.size.height
+                           - MIN([UIApplication sharedApplication].statusBarFrame.size.height,
+                                 [UIApplication sharedApplication].statusBarFrame.size.height)
+                           ) / image.size.height;
+    self.scrollView.zoomScale = (widthFactor > heightFactor) ? widthFactor : heightFactor;
+    
     [self.spinner stopAnimating];
 }
 
@@ -147,7 +155,20 @@
           withBarButtonItem:(UIBarButtonItem *)barButtonItem
        forPopoverController:(UIPopoverController *)pc
 {
-    barButtonItem.title = aViewController.title;
+    UIViewController *master = aViewController;
+    if ([master isKindOfClass:[UITabBarController class]]) {
+        
+        if(((UITabBarController *) master).selectedViewController) {
+            master = ((UITabBarController *) master).selectedViewController;
+        } else {
+            master = ((UITabBarController *) master).viewControllers[0];
+        }
+    }
+    if ([master isKindOfClass:[UINavigationController class]]) {
+        master = ((UINavigationController *) master).topViewController;
+    }
+    
+    barButtonItem.title = master.title;
     self.navigationItem.leftBarButtonItem = barButtonItem;
 }
 
